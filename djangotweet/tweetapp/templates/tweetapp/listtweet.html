@@ -1,11 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>List tweet page</h1>
-<ol>
+<div class="container" style="width: 50%;">
+
 
     {% for tweet in tweets %}
-    <li>{{tweet.tweet}}</li>
-    <li>TWEET APP</li>
+    <div class="card " style="padding: 5px; margin: 10px;background-color: antiquewhite;">
+        <div class="card-header" style="background-color: cornsilk">
+            <h4>  <span style="color: blue;">@</span>{{tweet.username}}</h4>
+        </div>
+        <div class="card-body" style="background-color: #f2f2f2">
+            <p class="card-text" style="background-color: cadetblue"><em> {{tweet.tweet}} </em></p>
+        </div>
+        {% if tweet.username == user %}
+        <div class="card-footer" style="background-color: cornsilk">
+            <a href="{% url 'tweetapp:deletetweet' id=tweet.id %}" class="btn btn-danger">Delete</a>
+        {%endif%}
+
+    </div>
     {% endfor %}
-</ol>
+
+</div>
 {% endblock %}

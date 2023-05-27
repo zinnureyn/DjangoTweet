@@ -1,10 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Add Tweet Form</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<h1>Add Tweet By Form</h1>
+<div class="container tweetform">
+    <form action="" method="POST">
+        {% csrf_token %}
+        {%for field in form %}
+        <div class="mb-3">
+            {{field.label_tag}}
+            {{field}}
+        </div>
+        {%endfor%}
+        <button type="submit" class="btn btn-primary">Send Tweet</button>
 
-</body>
-</html>
+    </form>
+</div>
+{% endblock %}

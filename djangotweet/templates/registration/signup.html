@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+        <div class="container">
+          <form method="POST" action="">
+            {% csrf_token %}
+            {% for field in form %}
+
+            <div class="mb-3">
+              {{ field.label_tag }}
+              {{ field }}
+            </div>
+            {% endfor %}
+            <button class="btn btn-primary" type="submit" value="signup" >Signup</button>
+
+          </form>
+        </div>
+
+{% endblock %}
